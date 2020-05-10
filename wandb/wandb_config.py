@@ -216,7 +216,7 @@ class Config(object):
     def __setitem__(self, key, val):
         # skip key callback, which is lambda fn in rllib and
         # causes a pyaml error
-        if key == 'callback':
+        if key == 'callback' or key == 'callbacks':
             return
         key, val = self._sanitize(key, val)
         self._items[key] = val
